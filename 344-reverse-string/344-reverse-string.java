@@ -2,14 +2,14 @@ class Solution {
     public void reverseString(char[] s) {
         recur(s, 0, s.length-1);
     }
-    public void recur(char []s, int left, int right){
-        if(left >= right){
+    public void recur(char[] s, int l, int r){
+        if(l >= r){
             return;
-        }
-        char temp = s[left];
-        s[left] = s[right];
-        s[right] = temp;
+            }
+        char temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
         
-        recur(s, left+1, right-1);
+        recur(s, l+1, r-1);
     }
 }
