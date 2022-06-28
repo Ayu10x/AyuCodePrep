@@ -1,7 +1,7 @@
 class Solution {
     public int maxSubArray(int[] nums) {
         
-        int maxSoFar = Integer.MIN_VALUE, maxEndHere = 0;
+        int maxSoFar = Integer.MIN_VALUE , maxEndHere =0;
         int n=nums.length;
         
         for(int i=0; i<n; i++){
@@ -15,6 +15,6 @@ class Solution {
                 maxEndHere = 0;
             }
         }
-            return maxSoFar;
+        return maxSoFar;
     }
 }
