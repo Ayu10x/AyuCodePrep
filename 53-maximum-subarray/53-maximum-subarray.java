@@ -1,18 +1,17 @@
 class Solution {
     public int maxSubArray(int[] nums) {
         
-        int maxSoFar = Integer.MIN_VALUE , maxEndHere =0;
-        int n=nums.length;
+        //Kadane's Algo
+        int maxSoFar = Integer.MIN_VALUE, maxHere = 0;
         
-        for(int i=0; i<n; i++){
+        for(int i=0; i<nums.length; i++){
+            maxHere = nums[i] + maxHere;
             
-            maxEndHere = maxEndHere + nums[i];
-            
-            if(maxSoFar < maxEndHere){
-                maxSoFar = maxEndHere;
+            if(maxSoFar < maxHere){
+                maxSoFar = maxHere;
             }
-            if(maxEndHere < 0){
-                maxEndHere = 0;
+            if(maxHere < 0){
+                maxHere = 0;
             }
         }
         return maxSoFar;
