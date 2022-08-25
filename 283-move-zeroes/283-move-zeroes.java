@@ -1,17 +1,15 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int n=nums.length;
-        int index=0; // Represents index where non-zero elements to be placed
-        for (int i=0;i<n;i++) {
-            if (nums[i]!=0) {
-                swapAtIndex(nums,i,index++);
+        int chintu, mintu = 0;
+        for(chintu=0; chintu< nums.length; chintu++){
+            if(nums[chintu] != 0){
+                swap(nums, chintu, mintu++);
             }
         }
     }
-    
-    private void swapAtIndex(int[] nums,int i,int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
+     private void swap(int[] arr, int i , int j){
+           int temp = arr[i];
+        arr[i] = arr[j];
+            arr[j] = temp;
+       }
 }
