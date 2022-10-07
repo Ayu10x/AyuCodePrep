@@ -1,25 +1,38 @@
-**Brute Force Approach**
-1. First we traverse through the matrix in search of zeros,
-2. When we find a zero we traverse for it's respective rows and col and turn them to -1 except zeros.
-3. Then we traverse in the whole array again for changing the -1's to zeros
-​
-TC : O((n*m)*(n+m)) and SC: O(1)
-​
-static void setZeroes(int[][] matrix) {
-int rows = matrix.length, cols = matrix[0].length;
+}
 for (int i = 0; i < rows; i++) {
 for (int j = 0; j < cols; j++) {
-if (matrix[i][j] == 0) {
+if (matrix[i][j] <= 0) {
+matrix[i][j] = 0;
+}
+}
+}
 ​
-int ind = i - 1;
-while (ind >= 0) {
-if (matrix[ind][j] != 0) {
-matrix[ind][j] = -1;
 }
-ind--;
+--------------------------------------------------------
+class Solution {
+public void setZeroes(int[][] matrix) {
+int R = matrix.length;
+int C = matrix[0].length;
+Set<Integer> rows = new HashSet<Integer>();
+Set<Integer> cols = new HashSet<Integer>();
+​
+// Essentially, we mark the rows and columns that are to be made zero
+for (int i = 0; i < R; i++) {
+for (int j = 0; j < C; j++) {
+if (matrix[i][j] == 0) {
+rows.add(i);
+cols.add(j);
 }
-ind = i + 1;
-while (ind < rows) {
-if (matrix[ind][j] != 0) {
-matrix[ind][j] = -1;
+}
+}
+​
+// Iterate over the array once again and using the rows and cols sets, update the elements.
+for (int i = 0; i < R; i++) {
+for (int j = 0; j < C; j++) {
+if (rows.contains(i) || cols.contains(j)) {
+matrix[i][j] = 0;
+}
+}
+}
+}
 }
