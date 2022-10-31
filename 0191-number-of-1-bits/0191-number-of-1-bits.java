@@ -9,13 +9,21 @@ public class Solution {
         //         sum ++;
         // }
         // return sum;
-         int c=0;
-        String st=Integer.toBinaryString(n);
-        for(int i=0;i<st.length();i++)
-        {
-            if(st.charAt(i)=='1')
-                c++;
-        }
-        return c;
+//---------------------------------
+        //  int c=0;
+        // String st=Integer.toBinaryString(n);
+        // for(int i=0;i<st.length();i++)
+        // {
+        //     if(st.charAt(i)=='1')
+        //         c++;
+        // }
+        // return c;
+        //-----------------------------------------
+        int ones = 0;
+    	while(n!=0) {
+    		ones = ones + (n & 1);
+    		n = n>>>1;
+    	}
+    	return ones;
     }
 }
