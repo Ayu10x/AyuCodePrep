@@ -27,12 +27,10 @@ class Solution
     {
         
         //Code here
-        int count = 0;
-        if(head == null) { return 0;}
-        Node temp = head;
-        while(temp != null){
+        int count=0;
+        while(head != null){
             count++;
-            temp = temp.next;
+            head = head.next;
         }
         return count;
     }
